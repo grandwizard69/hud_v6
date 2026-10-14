@@ -16,11 +16,11 @@ def process_command(command, hud_instance):
     if "lights_off" in command:
         print("1")
         turn_lights_off()
-        return
+        return get_light_status()
 
     elif "lights_on" in command:
         turn_lights_on()
-        return
+        return get_light_status()
 
     elif "lights_status" in command or "light_status" in command:
         status = get_light_status()

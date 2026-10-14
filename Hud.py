@@ -8,7 +8,7 @@ from brain_1 import process_command
 from datetime import datetime
 import threading
 import clr
-import libre_hardware_monitor_test 
+#import libre_hardware_monitor_test  #commented out cuz it dont work on linux laptop and i dont need it for now
 from PyQt6.QtCore import QRectF
 
 
@@ -33,13 +33,13 @@ class hud(QWidget):
         self.stop_event = threading.Event()
         self.cpu_temp = 0.0
 
-        # Start the background thread once pasing the stop event
+        """# Start the background thread once pasing the stop event
         self.monitor_thread = threading.Thread(
             target=libre_hardware_monitor_test.hi, 
             args=(self, self.stop_event), 
             daemon=True
         )
-        self.monitor_thread.start()
+        self.monitor_thread.start()"""
 
         self.completed_objectives = []
 
@@ -289,7 +289,7 @@ class hud(QWidget):
                 )
 
         
-        if self.should_show_gpu:
+        """if self.should_show_gpu:
             try:
 
                 handle = (
@@ -328,7 +328,9 @@ class hud(QWidget):
                 )
 
             except Exception as exc:
-                print("fail at getting gpu info. Exceptiin type: ", type(exc), "Exception: ", exc)
+                print("fail at getting gpu info. Exceptiin type: ", type(exc), "Exception: ", exc)"""
+
+        #commented out because it doesn't work on linux laptop and software needed is not installed and i can't find it
 
         self.update()
 
@@ -1131,7 +1133,7 @@ class hud(QWidget):
 
 
 
-    def next_super_cool_totally_awsome_mode(self):
+    def next_super_cool_totally_awsome_perchance_mode(self):
             self.modes = [
                 "default_mode",
                 "idk_wat_2_call_it_mode",
@@ -1206,7 +1208,7 @@ class hud(QWidget):
             self.close()
         
         elif event.key() == Qt.Key.Key_M:
-            self.next_super_cool_totally_awsome_mode()
+            self.next_super_cool_totally_awsome_perchance_mode()
 
 
     # ==================
@@ -1621,15 +1623,15 @@ class hud(QWidget):
 
 def choose_screen():
     screens = app.screens()
-
+    print("\n\nAvailable screens:")
     for i in range(len(screens)):
         print(screens[i].name() + "  " , i)
     
     
     screen_choice = input("\nEnter screen index plz: ")  #if commented out, put static option (this is for when im coding it and dont feel like doing the input  EVERY. SINGLE. TIME  cuz it anoyying)
-
+    #print("screen_choice:", screen_choice)
     if screen_choice == "": # this makes it so i dont have to comment and uncomment the line everytime and will just use the static option if nothing is entered
-        screen_choice = "1" #this is to make a static option for when im coding and blah whatever
+        screen_choice = "0" #this is to make a static option for when im coding and blah whatever
 
 
     if screen_choice in [str(i) for i in range(len(screens))]: # makes sure screen_choice is an actual index and not a random thing cuz someone was stupid and put something wrong. IMPORTANT ALSO i have str(i) because screen_choice is a string and string 0 wont == an int 0 LEAVE IT AS str(i) check comment on geometry below for explanation cuz i aint typing that again
