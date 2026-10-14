@@ -1,7 +1,7 @@
 should_remember_selected_quest=True
 main_quests=Complete summer work,Do spine workouts
 side_quests=Buy Laptop Fans,test
-selected_quest=Do spine workouts
+selected_quest=test
 quest:Buy Laptop Fans|find model number|search up fans|buy and replace fans
 quest:Complete summer work|try to get teacher to respond|type out intro letter|type out most significant writing experience|read the perks of being a wallflower|write essay in MLA formate on book (min two pages)
 quest:Do spine workouts|search up tutorials|make a list of excercises|do the work outs daily
